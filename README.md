@@ -1,4 +1,4 @@
-# Terraform Azure WebApp
+# Terraform Azure WebApp for Node
 
 Terraform module to create an Azure WebApp.
 

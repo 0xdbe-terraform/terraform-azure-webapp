@@ -9,7 +9,7 @@ locals {
   application_environment = "dev"
 }
 
-module "azure_ressource_group" {
+module "azure_resource_group" {
   source                  = "git::https://github.com/0xdbe-terraform/terraform-azure-resource-group.git?ref=v2.0.1"
   azure_location          = local.azure_location
   application_full_name   = local.application_full_name
@@ -18,9 +18,10 @@ module "azure_ressource_group" {
 }
 
 module "azure_web_app" {
-  source                  = "git::https://github.com/0xdbe-terraform/terraform-azure-webapp.git?ref=v0.0.2"
+  # source                  = "git::https://github.com/0xdbe-terraform/terraform-azure-webapp.git?ref=v0.0.3"
+  source = "../"
   azure_location          = local.azure_location
   application_short_name  = local.application_short_name
   application_environment = local.application_environment
-  resource_group_name     = module.azure_ressource_group.name
+  resource_group_name     = module.azure_resource_group.name
 }

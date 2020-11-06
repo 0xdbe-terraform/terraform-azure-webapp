@@ -11,7 +11,7 @@ resource "azurerm_app_service_plan" "main" {
     size = "F1"
   }
 
-} 
+}
 
 resource "azurerm_app_service" "main" {
 
@@ -24,7 +24,11 @@ resource "azurerm_app_service" "main" {
   identity {
     type = "SystemAssigned"
   }
-  
+
+  app_settings = {
+    "NODE_ENV" = var.application_environment
+  }
+
   site_config {
     linux_fx_version          = "NODE|12-lts"
     scm_type                  = "LocalGit"
