@@ -18,8 +18,7 @@ module "azure_resource_group" {
 }
 
 module "azure_web_app" {
-  # source                  = "git::https://github.com/0xdbe-terraform/terraform-azure-webapp.git?ref=v0.0.3"
-  source = "../"
+  source                  = "git::https://github.com/0xdbe-terraform/terraform-azure-webapp.git?ref=v0.0.3"
   azure_location          = local.azure_location
   application_short_name  = local.application_short_name
   application_environment = local.application_environment
